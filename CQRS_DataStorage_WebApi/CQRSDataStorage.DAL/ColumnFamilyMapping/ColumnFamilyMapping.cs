@@ -3,9 +3,9 @@ using CQRSDataStorage.Domain.Entities;
 
 namespace CQRSDataStorage.DAL.ColumnFamilyMapping
 {
-    public class EmployeeColumnFamilyMapping : Mappings
+    public class ColumnFamilyMapping : Mappings
     {
-        public EmployeeColumnFamilyMapping()
+        public ColumnFamilyMapping()
         {
             For<EmployeeEntity>()
                 .KeyspaceName("employees")

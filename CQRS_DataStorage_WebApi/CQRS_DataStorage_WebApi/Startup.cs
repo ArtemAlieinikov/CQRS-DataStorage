@@ -1,6 +1,4 @@
-﻿using CQRSDataStorage.DAL;
-using CQRSDataStorage.DAL.TableModels.TablesDefinitions.EmployeesKeySpaceTables;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -26,9 +24,6 @@ namespace CQRSDataStorage.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            var a = new CassandraDataStorageInitializer();
-            a.Initialize(new string[]{"127.0.0.1"}, new EmployeesTableEntity(), null);
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
