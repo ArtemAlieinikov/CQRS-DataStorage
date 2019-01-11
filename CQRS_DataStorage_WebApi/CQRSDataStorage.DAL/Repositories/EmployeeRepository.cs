@@ -1,5 +1,4 @@
-﻿using System;
-using Cassandra;
+﻿using CQRSDataStorage.DAL.Abstractions;
 using CQRSDataStorage.DAL.Abstractions.Repositories;
 using CQRSDataStorage.Domain.Entities;
 
@@ -7,11 +6,11 @@ namespace CQRSDataStorage.DAL.Repositories
 {
     class EmployeeRepository : IEmployeeRepository
     {
-        private readonly ISession _session;
+        private readonly ISessionProxy _sessionProxy;
 
-        public EmployeeRepository(ISession session, string tableKeySpace)
+        public EmployeeRepository(ISessionProxy sessionProxy)
         {
-            _session = session;
+            _sessionProxy = sessionProxy;
         }
 
         public void Add(EmployeeEntity employeeEntity)

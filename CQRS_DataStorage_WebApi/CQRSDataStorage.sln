@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.WebApi", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.DAL", "CQRSDataStorage.DAL\CQRSDataStorage.DAL.csproj", "{66D27713-697F-45AB-B45D-E6C2BC5BC9D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSDataStorage.DAL.Abstractions", "CQRSDataStorage.DAL.Abstractions\CQRSDataStorage.DAL.Abstractions.csproj", "{42A0B9E4-2AEC-4D12-9AE5-5830858A21D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.DAL.Abstractions", "CQRSDataStorage.DAL.Abstractions\CQRSDataStorage.DAL.Abstractions.csproj", "{42A0B9E4-2AEC-4D12-9AE5-5830858A21D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSDataStorage.Domain", "CQRSDataStorage.Domain\CQRSDataStorage.Domain.csproj", "{913E2DB8-BBC3-4271-9934-6A6513F5B5BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.Domain", "CQRSDataStorage.Domain\CQRSDataStorage.Domain.csproj", "{913E2DB8-BBC3-4271-9934-6A6513F5B5BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSDataStorage.DependenciesCore", "CQRSDataStorage.DependenciesCore\CQRSDataStorage.DependenciesCore.csproj", "{C88BD252-8FE1-4310-896D-04ED5BDB0F6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{913E2DB8-BBC3-4271-9934-6A6513F5B5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{913E2DB8-BBC3-4271-9934-6A6513F5B5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{913E2DB8-BBC3-4271-9934-6A6513F5B5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C88BD252-8FE1-4310-896D-04ED5BDB0F6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C88BD252-8FE1-4310-896D-04ED5BDB0F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C88BD252-8FE1-4310-896D-04ED5BDB0F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C88BD252-8FE1-4310-896D-04ED5BDB0F6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,4 +8,10 @@
     <ProjectReference Include="..\CQRSDataStorage.Domain\CQRSDataStorage.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Cassandra">
+      <HintPath>C:\Users\Artem_Alieinikov\.nuget\packages\cassandracsharpdriver\3.7.0\lib\netstandard1.5\Cassandra.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
