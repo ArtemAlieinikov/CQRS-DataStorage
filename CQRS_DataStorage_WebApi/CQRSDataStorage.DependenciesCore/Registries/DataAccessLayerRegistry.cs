@@ -1,5 +1,7 @@
 ﻿using CQRSDataStorage.DAL;
 using CQRSDataStorage.DAL.Abstractions;
+using CQRSDataStorage.DAL.Abstractions.Repositories;
+using CQRSDataStorage.DAL.Repositories;
 using StructureMap;
 
 namespace CQRSDataStorage.DependenciesCore.Registries
@@ -8,9 +10,13 @@ namespace CQRSDataStorage.DependenciesCore.Registries
     {
         public DataAccessLayerRegistry()
         {
-            For<ISessionProxy>()
-                .Use<SessionProxy>()
+            For<ICassandraDataStorageInitializer>()
+                .Use<CassandraDataStorageInitializer>()
                 .Singleton();
+
+            For<IEmployeeRepository>()
+                .Use<EmployeeRepository>()
+                .ContainerScoped();
         }    
     }
 }

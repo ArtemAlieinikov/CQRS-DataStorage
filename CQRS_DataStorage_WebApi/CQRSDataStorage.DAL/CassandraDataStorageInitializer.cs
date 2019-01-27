@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using Cassandra;
+﻿using Cassandra;
 using Cassandra.Data.Linq;
 using Cassandra.Mapping;
 using CQRSDataStorage.Domain.Entities;
+using CQRSDataStorage.DAL.Abstractions;
 
 namespace CQRSDataStorage.DAL
 {
-    public class CassandraDataStorageInitializer
+    public class CassandraDataStorageInitializer : ICassandraDataStorageInitializer
     {
-        public void Initialize(ISession session, List<Type> entity)
+        public CassandraDataStorageInitializer(ISession session)
+        {
+            Initialize(session);
+        }
+
+        private void Initialize(ISession session)
         {
             MappingConfiguration.Global.Define<ColumnFamilyMapping.ColumnFamilyMapping>();
 

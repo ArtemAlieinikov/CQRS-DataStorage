@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cassandra;
+using Cassandra.Mapping;
 using CQRSDataStorage.DependenciesCore.Registries;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,7 +24,17 @@ namespace CQRSDataStorage.WebApi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            var container = new Container();
+            var container = new Container(x => 
+            {
+                x.For<ISession>()
+                    .Use(y => Cluster.Builder()
+                        .AddContactPoints("host1", "host2", "host3")
+                        .Build()
+                        .Connect());
+
+                x.For<IMapper>().Use(y => new Mapper(y.GetInstance<ISession>()));
+            });
+
             container.Configure(config =>
             {
                 config.AddRegistry<DataAccessLayerRegistry>();

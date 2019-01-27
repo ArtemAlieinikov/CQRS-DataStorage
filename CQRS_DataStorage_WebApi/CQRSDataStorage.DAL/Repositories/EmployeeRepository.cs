@@ -9,15 +9,15 @@ using CQRSDataStorage.Domain.Entities;
 
 namespace CQRSDataStorage.DAL.Repositories
 {
-    class EmployeeRepository : IEmployeeRepository
+    public class EmployeeRepository : IEmployeeRepository
     {
         private readonly ISession _session;
         private readonly IMapper _cassandraMapper;
 
-        public EmployeeRepository(IMapper cassandraMapper, ISession session)
+        public EmployeeRepository(ISession session, IMapper cassandraMapper)
         {
-            _cassandraMapper = cassandraMapper;
             _session = session;
+            _cassandraMapper = cassandraMapper;
         }
 
         public void DeleteEmployee(EmployeeEntity employeeEntity)
