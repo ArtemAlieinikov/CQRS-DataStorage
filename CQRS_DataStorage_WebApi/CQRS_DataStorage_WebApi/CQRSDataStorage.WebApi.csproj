@@ -10,10 +10,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="StructureMap" Version="4.7.0" />
+    <PackageReference Include="StructureMap.Microsoft.DependencyInjection" Version="1.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CQRSDataStorage.DAL\CQRSDataStorage.DAL.csproj" />
+    <ProjectReference Include="..\CQRSDataStorage.DependenciesCore\CQRSDataStorage.DependenciesCore.csproj" />
   </ItemGroup>
 
 </Project>

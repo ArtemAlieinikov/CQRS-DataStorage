@@ -16,6 +16,7 @@ namespace CQRSDataStorage.DAL.ColumnFamilyMapping
                 .Column(x => x.EmployeeName, n => n.WithName("employee_name"))
                 .Column(x => x.EmployeeSurname, n => n.WithName("employee_surname"))
                 .PartitionKey(x => x.CountryName, x => x.CompanyName)
+                .ClusteringKey(x => x.CompanyName)
                 .ClusteringKey(x => x.EmployeeId);
         }
     }
