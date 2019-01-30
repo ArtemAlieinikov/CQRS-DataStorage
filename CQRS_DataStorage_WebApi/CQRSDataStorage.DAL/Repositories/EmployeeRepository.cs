@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using Cassandra;
 using Cassandra.Data.Linq;
 using Cassandra.Mapping;
+using CQRSDataStorage.DAL.Abstractions;
 using CQRSDataStorage.DAL.Abstractions.Repositories;
 using CQRSDataStorage.Domain.Entities;
 
@@ -14,9 +15,9 @@ namespace CQRSDataStorage.DAL.Repositories
         private readonly ISession _session;
         private readonly IMapper _cassandraMapper;
 
-        public EmployeeRepository(ISession session, IMapper cassandraMapper)
+        public EmployeeRepository(ISessionProxy sessionProxy, IMapper cassandraMapper)
         {
-            _session = session;
+            _session = sessionProxy.Session;
             _cassandraMapper = cassandraMapper;
         }
 

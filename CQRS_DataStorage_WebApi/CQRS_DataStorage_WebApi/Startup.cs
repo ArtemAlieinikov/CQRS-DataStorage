@@ -24,7 +24,7 @@ namespace CQRSDataStorage.WebApi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            PopulateSevicesMapping(services);
+            PopulateServicesMapping(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +38,7 @@ namespace CQRSDataStorage.WebApi
             app.UseMvc();
         }
 
-        private void PopulateSevicesMapping(IServiceCollection services)
+        private void PopulateServicesMapping(IServiceCollection services)
         {
             var contactPoints = Configuration.GetSection("CassandraClusterContactPoints");
 
@@ -48,9 +48,12 @@ namespace CQRSDataStorage.WebApi
                     .Use(y => Cluster.Builder()
                         .AddContactPoints(contactPoints.Value)
                         .Build()
-                        .Connect());
+                        .Connect())
+                    .Singleton();
 
-                x.For<IMapper>().Use(y => new Mapper(y.GetInstance<ISession>()));
+                x.For<IMapper>()
+                    .Use(y => new Mapper(y.GetInstance<ISession>()))
+                    .ContainerScoped();
             });
 
             container.Configure(config =>
