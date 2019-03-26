@@ -1,4 +1,5 @@
-﻿using Cassandra;
+﻿using System;
+using Cassandra;
 using Cassandra.Mapping;
 using CQRSDataStorage.DependenciesCore.Registries;
 using Microsoft.AspNetCore.Builder;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using StructureMap;
 
 namespace CQRSDataStorage.WebApi
@@ -20,11 +22,13 @@ namespace CQRSDataStorage.WebApi
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddJsonOptions(x => x.SerializerSettings.NullValueHandling = NullValueHandling.Ignore);
 
-            PopulateServicesMapping(services);
+            return PopulateServicesMapping(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,12 +42,16 @@ namespace CQRSDataStorage.WebApi
             app.UseMvc();
         }
 
-        private void PopulateServicesMapping(IServiceCollection services)
+        private IServiceProvider PopulateServicesMapping(IServiceCollection services)
         {
             var contactPoints = Configuration.GetSection("CassandraClusterContactPoints");
 
             var container = new Container(x =>
             {
+                x.For<IServiceProvider>()
+                    .Use(y => services.BuildServiceProvider())
+                    .Singleton();
+
                 x.For<ISession>()
                     .Use(y => Cluster.Builder()
                         .AddContactPoints(contactPoints.Value)
@@ -59,8 +67,11 @@ namespace CQRSDataStorage.WebApi
             container.Configure(config =>
             {
                 config.AddRegistry<DataAccessLayerRegistry>();
+                config.AddRegistry<QueriesRegistry>();
                 config.Populate(services);
             });
+
+            return container.GetInstance<IServiceProvider>();
         }
     }
 }

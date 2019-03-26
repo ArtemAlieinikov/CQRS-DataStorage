@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using CQRSDataStorage.Domain.Entities;
+using CQRSDataStorage.Queries.Abstractions;
+using CQRSDataStorage.Queries.Queries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CQRSDataStorage.WebApi.Controllers
@@ -7,11 +10,22 @@ namespace CQRSDataStorage.WebApi.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IQueryDispatcher _queryDispatcher;
+
+        public ValuesController(IQueryDispatcher queryDispatcher)
+        {
+            _queryDispatcher = queryDispatcher;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<EmployeeEntity> Get()
         {
-            return new string[] { "value1", "value2" };
+            var query = new GetAllEmployeesQuery();
+
+            var result = _queryDispatcher.Execute<GetAllEmployeesQuery, IEnumerable<EmployeeEntity>>(query);
+
+            return result;
         }
 
         // GET api/values/5

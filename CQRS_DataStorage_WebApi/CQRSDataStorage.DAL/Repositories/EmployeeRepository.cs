@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Cassandra;
 using Cassandra.Data.Linq;
 using Cassandra.Mapping;
@@ -21,30 +22,28 @@ namespace CQRSDataStorage.DAL.Repositories
             _cassandraMapper = cassandraMapper;
         }
 
-        public void DeleteEmployee(EmployeeEntity employeeEntity)
+        public async Task DeleteEmployee(EmployeeEntity employeeEntity)
         {
-            _cassandraMapper.Delete(employeeEntity);
+            await _cassandraMapper.DeleteAsync(employeeEntity);
         }
 
-        public void AddEmployee(EmployeeEntity employeeEntity)
+        public async Task AddEmployee(EmployeeEntity employeeEntity)
         {
-            _cassandraMapper.Insert(employeeEntity);
+            await _cassandraMapper.InsertAsync(employeeEntity);
         }
 
-        public IEnumerable<EmployeeEntity> GetEmployees(Expression<Func<EmployeeEntity, bool>> filter)
+        public IEnumerable<EmployeeEntity> GetEmployees()
         {
-            var employees = GetTable()
-                .Where(filter)
-                .Execute();
+            var employees = GetTable().Execute();
 
             return employees;
         }
 
-        public EmployeeEntity GetEmployee(Expression<Func<EmployeeEntity, bool>> filter)
+        public async Task<EmployeeEntity> GetEmployee(Expression<Func<EmployeeEntity, bool>> filter)
         {
-            var employees = GetTable()
+            var employees = await GetTable()
                 .First(filter)
-                .Execute();
+                .ExecuteAsync();
 
             return employees;
         }

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.WebApi", "CQRS_DataStorage_WebApi\CQRSDataStorage.WebApi.csproj", "{0EB0AB2C-6849-43F0-B56E-CE17B58733F1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.DAL", "CQRSDataStorage.DAL\CQRSDataStorage.DAL.csproj", "{66D27713-697F-45AB-B45D-E6C2BC5BC9D8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.DAL.Abstractions", "CQRSDataStorage.DAL.Abstractions\CQRSDataStorage.DAL.Abstractions.csproj", "{42A0B9E4-2AEC-4D12-9AE5-5830858A21D7}"
@@ -13,9 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.Domain", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.DependenciesCore", "CQRSDataStorage.DependenciesCore\CQRSDataStorage.DependenciesCore.csproj", "{C88BD252-8FE1-4310-896D-04ED5BDB0F6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSDataStorage.Commands.Abstractions", "CQRSDataStorage.Commands.Abstractions\CQRSDataStorage.Commands.Abstractions.csproj", "{D8078B06-0398-4710-A12A-EB9C11CA57A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.Commands.Abstractions", "CQRSDataStorage.Commands.Abstractions\CQRSDataStorage.Commands.Abstractions.csproj", "{D8078B06-0398-4710-A12A-EB9C11CA57A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSDataStorage.Queries.Abstractions", "CQRSDataStorage.Queries.Abstractions\CQRSDataStorage.Queries.Abstractions.csproj", "{624BA877-F6DD-42DF-BBAD-FD3B0A0BF3DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.Queries.Abstractions", "CQRSDataStorage.Queries.Abstractions\CQRSDataStorage.Queries.Abstractions.csproj", "{624BA877-F6DD-42DF-BBAD-FD3B0A0BF3DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.WebApi", "CQRSDataStorage.WebApi\CQRSDataStorage.WebApi.csproj", "{C70128FB-8D5C-4E1C-BFA4-651416D06785}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSDataStorage.Queries", "CQRSDataStorage.Queries\CQRSDataStorage.Queries.csproj", "{3E1C8016-7B44-4BE4-89A3-631495B47E01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0EB0AB2C-6849-43F0-B56E-CE17B58733F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EB0AB2C-6849-43F0-B56E-CE17B58733F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EB0AB2C-6849-43F0-B56E-CE17B58733F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EB0AB2C-6849-43F0-B56E-CE17B58733F1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66D27713-697F-45AB-B45D-E6C2BC5BC9D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66D27713-697F-45AB-B45D-E6C2BC5BC9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D27713-697F-45AB-B45D-E6C2BC5BC9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +49,14 @@ Global
 		{624BA877-F6DD-42DF-BBAD-FD3B0A0BF3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{624BA877-F6DD-42DF-BBAD-FD3B0A0BF3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{624BA877-F6DD-42DF-BBAD-FD3B0A0BF3DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C70128FB-8D5C-4E1C-BFA4-651416D06785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C70128FB-8D5C-4E1C-BFA4-651416D06785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C70128FB-8D5C-4E1C-BFA4-651416D06785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C70128FB-8D5C-4E1C-BFA4-651416D06785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E1C8016-7B44-4BE4-89A3-631495B47E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E1C8016-7B44-4BE4-89A3-631495B47E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E1C8016-7B44-4BE4-89A3-631495B47E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E1C8016-7B44-4BE4-89A3-631495B47E01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,9 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CQRSDataStorage.DAL\CQRSDataStorage.DAL.csproj" />
+    <ProjectReference Include="..\CQRSDataStorage.DAL.Abstractions\CQRSDataStorage.DAL.Abstractions.csproj" />
+    <ProjectReference Include="..\CQRSDataStorage.Domain\CQRSDataStorage.Domain.csproj" />
     <ProjectReference Include="..\CQRSDataStorage.Queries.Abstractions\CQRSDataStorage.Queries.Abstractions.csproj" />
-    <ProjectReference Include="..\CQRSDataStorage.Queries\CQRSDataStorage.Queries.csproj" />
   </ItemGroup>
 
 </Project>
