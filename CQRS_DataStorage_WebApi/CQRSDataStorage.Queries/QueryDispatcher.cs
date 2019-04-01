@@ -1,7 +1,6 @@
 ﻿using System;
 using CQRSDataStorage.Queries.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
-using StructureMap;
 
 namespace CQRSDataStorage.Queries
 {

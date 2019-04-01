@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using CQRSDataStorage.Domain.Entities;
 using CQRSDataStorage.Queries.Abstractions;
 

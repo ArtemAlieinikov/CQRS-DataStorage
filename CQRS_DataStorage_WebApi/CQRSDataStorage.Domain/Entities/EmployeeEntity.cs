@@ -1,4 +1,6 @@
-﻿namespace CQRSDataStorage.Domain.Entities
+﻿using System;
+
+namespace CQRSDataStorage.Domain.Entities
 {
     public class EmployeeEntity : BaseDomainEntity
     {
@@ -6,7 +8,7 @@
 
         public string CountryName { get; set; }
 
-        public string EmployeeId { get; set; }
+        public Guid EmployeeId { get; set; } = new Guid();
 
         public string EmployeeName { get; set; }
 

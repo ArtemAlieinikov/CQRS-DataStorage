@@ -22,14 +22,14 @@ namespace CQRSDataStorage.DAL.Repositories
             _cassandraMapper = cassandraMapper;
         }
 
-        public async Task DeleteEmployee(EmployeeEntity employeeEntity)
+        public void DeleteEmployee(EmployeeEntity employeeEntity)
         {
-            await _cassandraMapper.DeleteAsync(employeeEntity);
+            _cassandraMapper.DeleteAsync(employeeEntity);
         }
 
-        public async Task AddEmployee(EmployeeEntity employeeEntity)
+        public void AddEmployee(EmployeeEntity employeeEntity)
         {
-            await _cassandraMapper.InsertAsync(employeeEntity);
+            _cassandraMapper.InsertAsync(employeeEntity);
         }
 
         public IEnumerable<EmployeeEntity> GetEmployees()
@@ -39,11 +39,11 @@ namespace CQRSDataStorage.DAL.Repositories
             return employees;
         }
 
-        public async Task<EmployeeEntity> GetEmployee(Expression<Func<EmployeeEntity, bool>> filter)
+        public EmployeeEntity GetEmployee(Expression<Func<EmployeeEntity, bool>> filter)
         {
-            var employees = await GetTable()
+            var employees = GetTable()
                 .First(filter)
-                .ExecuteAsync();
+                .Execute();
 
             return employees;
         }

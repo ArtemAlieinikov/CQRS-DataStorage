@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.Queries.Abs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.WebApi", "CQRSDataStorage.WebApi\CQRSDataStorage.WebApi.csproj", "{C70128FB-8D5C-4E1C-BFA4-651416D06785}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSDataStorage.Queries", "CQRSDataStorage.Queries\CQRSDataStorage.Queries.csproj", "{3E1C8016-7B44-4BE4-89A3-631495B47E01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSDataStorage.Queries", "CQRSDataStorage.Queries\CQRSDataStorage.Queries.csproj", "{3E1C8016-7B44-4BE4-89A3-631495B47E01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSDataStorage.Commands", "CQRSDataStorage.Commands\CQRSDataStorage.Commands.csproj", "{8601FF11-AD0F-4F86-8776-33B822B34AFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{3E1C8016-7B44-4BE4-89A3-631495B47E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E1C8016-7B44-4BE4-89A3-631495B47E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E1C8016-7B44-4BE4-89A3-631495B47E01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8601FF11-AD0F-4F86-8776-33B822B34AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8601FF11-AD0F-4F86-8776-33B822B34AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8601FF11-AD0F-4F86-8776-33B822B34AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8601FF11-AD0F-4F86-8776-33B822B34AFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

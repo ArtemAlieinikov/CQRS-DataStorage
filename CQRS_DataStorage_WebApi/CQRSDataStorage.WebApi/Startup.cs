@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using StructureMap;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace CQRSDataStorage.WebApi
 {
@@ -28,6 +29,11 @@ namespace CQRSDataStorage.WebApi
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(x => x.SerializerSettings.NullValueHandling = NullValueHandling.Ignore);
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "CQRS Example API", Version = "v0.0.0.1" });
+            });
+
             return PopulateServicesMapping(services);
         }
 
@@ -38,6 +44,9 @@ namespace CQRSDataStorage.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(x => { x.SwaggerEndpoint("/swagger/v1/swagger.json", "CQRS Example API v0.0.0.1"); });
 
             app.UseMvc();
         }
@@ -68,6 +77,7 @@ namespace CQRSDataStorage.WebApi
             {
                 config.AddRegistry<DataAccessLayerRegistry>();
                 config.AddRegistry<QueriesRegistry>();
+                config.AddRegistry<CommandsRegistry>();
                 config.Populate(services);
             });
 

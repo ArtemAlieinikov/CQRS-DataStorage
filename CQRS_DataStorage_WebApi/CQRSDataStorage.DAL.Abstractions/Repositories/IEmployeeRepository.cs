@@ -8,12 +8,12 @@ namespace CQRSDataStorage.DAL.Abstractions.Repositories
 {
     public interface IEmployeeRepository
     {
-        Task DeleteEmployee(EmployeeEntity employeeEntity);
+        void DeleteEmployee(EmployeeEntity employeeEntity);
 
-        Task AddEmployee(EmployeeEntity employeeEntity);
+        void AddEmployee(EmployeeEntity employeeEntity);
 
         IEnumerable<EmployeeEntity> GetEmployees();
 
-        Task<EmployeeEntity> GetEmployee(Expression<Func<EmployeeEntity, bool>> filter);
+        EmployeeEntity GetEmployee(Expression<Func<EmployeeEntity, bool>> filter);
     }
 }

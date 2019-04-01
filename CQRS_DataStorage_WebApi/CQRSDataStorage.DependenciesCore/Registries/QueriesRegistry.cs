@@ -14,8 +14,7 @@ namespace CQRSDataStorage.DependenciesCore.Registries
         {
             For<IQueryDispatcher>().Use<QueryDispatcher>();
 
-            For<IQueryHandler<GetAllEmployeesQuery, IEnumerable<EmployeeEntity>>>()
-                .Use<GetAllEmployeesQueryHandler>();
+            For<IQueryHandler<GetAllEmployeesQuery, IEnumerable<EmployeeEntity>>>().Use<GetAllEmployeesQueryHandler>();
         }
     }
 }

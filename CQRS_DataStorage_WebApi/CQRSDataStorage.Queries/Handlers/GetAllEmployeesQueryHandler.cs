@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using CQRSDataStorage.DAL.Abstractions.Repositories;
 using CQRSDataStorage.Domain.Entities;
 using CQRSDataStorage.Queries.Abstractions;
@@ -18,7 +17,7 @@ namespace CQRSDataStorage.Queries.Handlers
 
         public IEnumerable<EmployeeEntity> Execute(GetAllEmployeesQuery query)
         {
-            var employees = _employeeRepository.GetEmployees(x => true);
+            var employees = _employeeRepository.GetEmployees();
 
             return employees;
         }
